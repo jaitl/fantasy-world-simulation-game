@@ -1,7 +1,11 @@
 package pro.jaitl.game;
 
 public class App {
+
     public static void main(String[] args) {
-        System.out.println("hello!");
+        Simulation simulation = new Simulation();
+        System.out.println("=== start simulation ===");
+        simulation.startSimulation();
+        System.out.println("=== end simulation ===");
     }
 }
