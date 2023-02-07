@@ -26,19 +26,18 @@ public class InitMapAction implements Action {
 
     private void generateEntities(int count, WorldMap map, Supplier<Entity> supplier) {
         for (int i = 0; i < count; i += 1) {
-            Coordinate coordinate = randomCoordinate(map, map.getSize());
+            Coordinate coordinate = randomCoordinate(map);
             Entity entity = supplier.get();
             map.add(coordinate, entity);
         }
     }
 
-    private Coordinate randomCoordinate(WorldMap map, int worldSize) {
+    private Coordinate randomCoordinate(WorldMap map) {
         while(true) {
-            Coordinate coordinate = RandomUtils.randomCoordinate(worldSize);
+            Coordinate coordinate = RandomUtils.randomCoordinate(map.getSize());
             if (!map.hasCoorditate(coordinate)) {
                 return coordinate;
             }
         }
     }
-    
 }
