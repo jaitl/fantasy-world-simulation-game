@@ -24,12 +24,12 @@ public class App {
         initParams.setPredatorCount(2);
 
         PredatorParams predatorParams = new PredatorParams();
-        predatorParams.setMaxHealth(2);
+        predatorParams.setStrength(2);
         predatorParams.setMaxHealth(10);
         predatorParams.setMoveCount(2);
 
         HerbivoreParams herbivoreParams = new HerbivoreParams();
-        herbivoreParams.setMaxHealth(20);
+        herbivoreParams.setMaxHealth(10);
         herbivoreParams.setMoveCount(3);
 
         Params params = new Params();
