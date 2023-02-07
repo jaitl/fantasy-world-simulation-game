@@ -1,5 +1,6 @@
 package pro.jaitl.game.entity;
 
+import pro.jaitl.game.Params;
 import pro.jaitl.game.WorldMap;
 
 public abstract class Creature extends Entity {
@@ -28,5 +29,5 @@ public abstract class Creature extends Entity {
         this.moveCount = moveCount;
     }
 
-    public abstract void makeMove(WorldMap map);
+    public abstract void makeMove(WorldMap map, Params params);
 }

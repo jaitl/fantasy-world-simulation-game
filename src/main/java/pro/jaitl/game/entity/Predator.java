@@ -1,5 +1,6 @@
 package pro.jaitl.game.entity;
 
+import pro.jaitl.game.Params;
 import pro.jaitl.game.WorldMap;
 
 public class Predator extends Creature {
@@ -11,7 +12,7 @@ public class Predator extends Creature {
     }
 
     @Override
-    public void makeMove(WorldMap map) {
+    public void makeMove(WorldMap map, Params params) {
 
     }
 }
