@@ -1,14 +1,15 @@
 package pro.jaitl.game.entity;
 
-import pro.jaitl.game.Params;
-import pro.jaitl.game.WorldMap;
+import pro.jaitl.game.map.WorldMap;
+import pro.jaitl.game.params.Params;
+import pro.jaitl.game.params.PredatorParams;
 
 public class Predator extends Creature {
     private final int strength;
 
-    public Predator(String name, int health, int moveCount, int strength) {
-        super(name, health, moveCount);
-        this.strength = strength;
+    public Predator(PredatorParams params) {
+        super("🐺", params.getMaxHealth(), params.getMoveCount());
+        this.strength = params.getStrength();
     }
 
     @Override

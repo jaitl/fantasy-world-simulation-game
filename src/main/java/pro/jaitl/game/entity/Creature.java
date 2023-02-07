@@ -1,7 +1,7 @@
 package pro.jaitl.game.entity;
 
-import pro.jaitl.game.Params;
-import pro.jaitl.game.WorldMap;
+import pro.jaitl.game.map.WorldMap;
+import pro.jaitl.game.params.Params;
 
 public abstract class Creature extends Entity {
     private int health;

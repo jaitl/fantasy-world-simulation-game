@@ -1,12 +1,13 @@
 package pro.jaitl.game.entity;
 
-import pro.jaitl.game.Params;
-import pro.jaitl.game.WorldMap;
+import pro.jaitl.game.map.WorldMap;
+import pro.jaitl.game.params.HerbivoreParams;
+import pro.jaitl.game.params.Params;
 
 public class Herbivore extends Creature {
 
-    public Herbivore(String name, int health, int moveCount) {
-        super(name, health, moveCount);
+    public Herbivore(HerbivoreParams params) {
+        super("🐮", params.getMaxHealth(), params.getMoveCount());
     }
 
     @Override
