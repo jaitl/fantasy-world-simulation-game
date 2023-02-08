@@ -6,6 +6,7 @@ import pro.jaitl.game.entity.Entity;
 import pro.jaitl.game.entity.Grass;
 import pro.jaitl.game.entity.Herbivore;
 import pro.jaitl.game.entity.Predator;
+import pro.jaitl.game.entity.Rock;
 import pro.jaitl.game.entity.Tree;
 import pro.jaitl.game.map.Coordinate;
 import pro.jaitl.game.map.WorldMap;
@@ -20,6 +21,7 @@ public class InitMapAction implements Action {
         InitParams initParams = params.getInitParams();
         generateEntities(initParams.getGrossCount(), map, () -> new Grass());
         generateEntities(initParams.getTreeCount(), map, () -> new Tree());
+        generateEntities(initParams.getRockCount(), map, () -> new Rock());
         generateEntities(initParams.getHerbivoreCount(), map, () -> new Herbivore(params.getHerbivoreParams()));
         generateEntities(initParams.getPredatorCount(), map, () -> new Predator(params.getPredatorParams()));
     }

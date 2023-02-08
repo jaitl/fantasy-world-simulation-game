@@ -37,4 +37,22 @@ public class WorldMap {
         Coordinate coordinate = entities.remove(entity);
         coordinates.remove(coordinate);
     }
+
+    @Override
+    public String toString() {
+        final String emptySymbol = "🟫";
+        StringBuilder builder = new StringBuilder();
+        for (int x = 0; x < size; x += 1) {
+            for (int y = 0; y < size; y += 1) {
+                Entity entity = coordinates.get(new Coordinate(x, y));
+                if (entity != null) {
+                    builder.append(entity.getName());
+                } else {
+                    builder.append(emptySymbol);
+                }
+            }
+            builder.append("\n\r");
+        }
+        return builder.toString();
+    }
 }

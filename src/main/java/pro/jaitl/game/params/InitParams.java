@@ -3,6 +3,7 @@ package pro.jaitl.game.params;
 public class InitParams {
     private int treeCount;
     private int grossCount;
+    private int rockCount;
     private int herbivoreCount;
     private int predatorCount;
     
@@ -23,6 +24,14 @@ public class InitParams {
 
     public void setGrossCount(int grossCount) {
         this.grossCount = grossCount;
+    }
+
+    public int getRockCount() {
+        return rockCount;
+    }
+
+    public void setRockCount(int rockCount) {
+        this.rockCount = rockCount;
     }
 
     public int getHerbivoreCount() {

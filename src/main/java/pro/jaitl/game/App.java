@@ -20,6 +20,7 @@ public class App {
         InitParams initParams = new InitParams();
         initParams.setGrossCount(10);
         initParams.setTreeCount(10);
+        initParams.setRockCount(10);
         initParams.setHerbivoreCount(10);
         initParams.setPredatorCount(2);
 

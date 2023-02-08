@@ -26,12 +26,16 @@ public class Simulation {
         for(Action action : initActions) {
             action.doAction(worldMap, params);
         }
+        System.out.println("start map:");
+        System.out.print(worldMap);
 
+        /*
         while(true) {
             System.out.println("move number: " + moveNumner);
             nextTurn();
             moveNumner += 1;
         }
+        */
     }
 
     private void nextTurn() {
