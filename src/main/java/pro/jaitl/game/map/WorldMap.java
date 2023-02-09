@@ -38,6 +38,10 @@ public class WorldMap {
         coordinates.remove(coordinate);
     }
 
+    public Entity getEntity(Coordinate coordinate) {
+        return coordinates.get(coordinate);
+    }
+
     @Override
     public String toString() {
         final String emptySymbol = "🟫";

@@ -41,4 +41,9 @@ public class Coordinate {
             return false;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Coordinate[x=%s,y=%s]", x, y);
+    }
 }
