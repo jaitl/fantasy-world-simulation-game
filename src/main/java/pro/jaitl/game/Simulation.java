@@ -29,13 +29,11 @@ public class Simulation {
         System.out.println("start map:");
         System.out.print(worldMap);
 
-        /*
         while(true) {
             System.out.println("move number: " + moveNumner);
             nextTurn();
             moveNumner += 1;
         }
-        */
     }
 
     private void nextTurn() {

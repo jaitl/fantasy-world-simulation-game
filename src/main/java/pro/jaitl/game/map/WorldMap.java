@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pro.jaitl.game.entity.Entity;
+import pro.jaitl.game.map.path.PathSearch;
+import pro.jaitl.game.map.path.PathSearchBfsImpl;
 
 public class WorldMap {
     private final int size;
@@ -24,6 +26,9 @@ public class WorldMap {
     }
 
     public void add(Coordinate coordinate, Entity entity) {
+        if (coordinates.containsKey(coordinate) || entities.containsKey(entity)) {
+            throw new RuntimeException(String.format("already exists: %s, %s", coordinate, entity));
+        }
         entities.put(entity, coordinate);
         coordinates.put(coordinate, entity);
     }
@@ -40,6 +45,14 @@ public class WorldMap {
 
     public Entity getEntity(Coordinate coordinate) {
         return coordinates.get(coordinate);
+    }
+
+    public Coordinate getCoordinate(Entity entity) {
+        return entities.get(entity);
+    }
+
+    public PathSearch getPatchSearch() {
+        return new PathSearchBfsImpl(size);
     }
 
     @Override

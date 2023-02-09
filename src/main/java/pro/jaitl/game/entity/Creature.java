@@ -1,7 +1,7 @@
 package pro.jaitl.game.entity;
 
+import pro.jaitl.game.map.Coordinate;
 import pro.jaitl.game.map.WorldMap;
-import pro.jaitl.game.params.Params;
 
 public abstract class Creature extends Entity {
     private int health;
@@ -29,5 +29,10 @@ public abstract class Creature extends Entity {
         this.moveCount = moveCount;
     }
 
-    public abstract void makeMove(WorldMap map, Params params);
+    public abstract void makeMove(WorldMap map);
+
+    protected void moveCreature(WorldMap worldMap, Coordinate newCoordinate) {
+        worldMap.remove(this);
+        worldMap.add(newCoordinate, this);
+    }
 }

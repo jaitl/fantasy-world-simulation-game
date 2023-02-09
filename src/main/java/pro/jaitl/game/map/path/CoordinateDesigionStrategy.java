@@ -1,7 +1,5 @@
 package pro.jaitl.game.map.path;
 
-import javax.swing.text.html.parser.Entity;
-
 import pro.jaitl.game.map.Coordinate;
 
 /*
