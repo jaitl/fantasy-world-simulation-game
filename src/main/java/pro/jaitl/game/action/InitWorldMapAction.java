@@ -1,5 +1,6 @@
 package pro.jaitl.game.action;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 import pro.jaitl.game.entity.Entity;
@@ -10,15 +11,15 @@ import pro.jaitl.game.entity.Rock;
 import pro.jaitl.game.entity.Tree;
 import pro.jaitl.game.map.Coordinate;
 import pro.jaitl.game.map.WorldMap;
-import pro.jaitl.game.params.InitParams;
+import pro.jaitl.game.params.WorldSizeParams;
 import pro.jaitl.game.params.Params;
 import pro.jaitl.game.utils.RandomUtils;
 
-public class InitMapAction implements Action {
+public class InitWorldMapAction implements Action {
 
     @Override
     public void doAction(WorldMap map, Params params) {
-        InitParams initParams = params.getInitParams();
+        WorldSizeParams initParams = params.getWorldSizeParams();
         generateEntities(initParams.getGrossCount(), map, () -> new Grass());
         generateEntities(initParams.getTreeCount(), map, () -> new Tree());
         generateEntities(initParams.getRockCount(), map, () -> new Rock());

@@ -26,7 +26,7 @@ public class Herbivore extends Creature {
         List<Coordinate> coordinates = path.toList();
 
         for (int i = 0; i < getMoveCount(); i += 1) {
-            if (coordinates.size() < i) {
+            if (coordinates.size() <= i) {
                 break;
             }
             
@@ -38,6 +38,7 @@ public class Herbivore extends Creature {
             }
             if (entity instanceof Grass) {
                 eat(map, coordinate);
+                break;
             }
         }
     }

@@ -2,7 +2,7 @@ package pro.jaitl.game.params;
 
 public class Params {
     private int mapSize;
-    private InitParams initParams;
+    private WorldSizeParams worldSizeParams;
     private HerbivoreParams herbivoreParams;
     private PredatorParams predatorParams;
     
@@ -17,12 +17,12 @@ public class Params {
         this.mapSize = mapSize;
     }
 
-    public InitParams getInitParams() {
-        return initParams;
+    public WorldSizeParams getWorldSizeParams() {
+        return worldSizeParams;
     }
 
-    public void setInitParams(InitParams initParams) {
-        this.initParams = initParams;
+    public void setWorldSizeParams(WorldSizeParams worldSizeParams) {
+        this.worldSizeParams = worldSizeParams;
     }
 
     public HerbivoreParams getHerbivoreParams() {

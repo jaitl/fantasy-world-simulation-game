@@ -1,13 +1,22 @@
 package pro.jaitl.game.params;
 
-public class InitParams {
+public class WorldSizeParams {
+    private float alivePersent;
     private int treeCount;
     private int grossCount;
     private int rockCount;
     private int herbivoreCount;
     private int predatorCount;
     
-    public InitParams() {
+    public WorldSizeParams() {
+    }
+
+    public float getAlivePersent() {
+        return alivePersent;
+    }
+
+    public void setAlivePersent(float alivePersent) {
+        this.alivePersent = alivePersent;
     }
 
     public int getTreeCount() {

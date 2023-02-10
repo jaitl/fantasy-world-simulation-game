@@ -1,8 +1,11 @@
 package pro.jaitl.game.map;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import pro.jaitl.game.entity.Creature;
 import pro.jaitl.game.entity.Entity;
 import pro.jaitl.game.map.path.PathSearch;
 import pro.jaitl.game.map.path.PathSearchBfsImpl;
@@ -49,6 +52,30 @@ public class WorldMap {
 
     public Coordinate getCoordinate(Entity entity) {
         return entities.get(entity);
+    }
+
+    public List<Creature> getCreatures() {
+        List<Creature> creatures = new ArrayList<>();
+
+        for (Entity entity : entities.keySet()) {
+            if (entity instanceof Creature) {
+                creatures.add((Creature) entity);
+            }
+        }
+
+        return creatures;
+    }
+
+    public <T extends Entity> List<T> getByClass(Class<T> clazz) {
+        List<T> result = new ArrayList<>();
+
+        for (Entity entity : entities.keySet()) {
+            if (clazz.equals(entity.getClass())) {
+                result.add((T) entity);
+            }
+        }
+
+        return result;
     }
 
     public PathSearch getPatchSearch() {

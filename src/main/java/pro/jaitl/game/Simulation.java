@@ -32,7 +32,14 @@ public class Simulation {
         while(true) {
             System.out.println("move number: " + moveNumner);
             nextTurn();
+            System.out.println(worldMap);
             moveNumner += 1;
+            
+            try {
+                Thread.sleep(500);
+            } catch (Exception e) {
+                
+            }
         }
     }
 
