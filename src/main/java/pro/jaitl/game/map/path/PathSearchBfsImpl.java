@@ -44,7 +44,7 @@ public class PathSearchBfsImpl extends PathSearchAlg {
                         visited.add(coordinate);
                         break;
                     case target:
-                        // если целевая координата найдена, то возвращаем путь до нее;
+                        // если целевая координата найдена, то возвращает путь до нее;
                         return path;
                 }
             }

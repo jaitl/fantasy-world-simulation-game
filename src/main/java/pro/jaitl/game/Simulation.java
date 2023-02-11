@@ -37,12 +37,12 @@ public class Simulation {
             System.out.println(worldMap);
             moveNumner += 1;
             
-            // Замедляем выполнение програамы, что бы наблюдать за результатом
+            // Замедляет выполнение програамы, что бы наблюдать за результатом
             threadSleep(500);
         }
     }
 
-    // Преобразовываем cacheable exception в uncacheable для красоты кода =)
+    // Преобразовывает cacheable exception в uncacheable для красоты кода =)
     private void threadSleep(int time) {
         try {
             Thread.sleep(time);

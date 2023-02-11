@@ -8,17 +8,10 @@ import pro.jaitl.game.map.path.CoordinateDesigionStrategy;
 import pro.jaitl.game.map.path.Path;
 import pro.jaitl.game.map.path.PathSearchAlg;
 
-public abstract class Creature extends Entity implements Comparable<Creature> {
-    // Приоритет при ходе, животное с наименьшим приоритетом ходит первым.
-    private final int priority;
+public abstract class Creature extends Entity {
 
-    public int getPriority() {
-        return priority;
-    }
-
-    public Creature(String name, int priority) {
+    public Creature(String name) {
         super(name);
-        this.priority = priority;
     }
 
     protected abstract CoordinateDesigionStrategy searchStrategy(WorldMap map);
@@ -27,11 +20,6 @@ public abstract class Creature extends Entity implements Comparable<Creature> {
     protected enum Reaction {
         move,
         eat;
-    }
-
-    @Override
-    public int compareTo(Creature arg0) {
-        return Integer.compare(priority, arg0.getPriority());
     }
 
     public void makeMove(WorldMap map) {

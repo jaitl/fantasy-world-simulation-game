@@ -7,7 +7,7 @@ import pro.jaitl.game.map.path.Desigion;
 public class Herbivore extends Creature {
 
     public Herbivore() {
-        super("🐮", 10);
+        super("🐮");
     }
 
     @Override

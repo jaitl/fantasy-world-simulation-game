@@ -51,7 +51,7 @@ public class WorldMap {
     }
 
     /*
-     * Возвращает живых существ, отсортированных по приоритету хода
+     * Возвращает живых существ
      */
     public List<Creature> getCreatures() {
         List<Creature> creatures = new ArrayList<>();
@@ -61,9 +61,6 @@ public class WorldMap {
                 creatures.add((Creature) entity);
             }
         }
-
-        // Сортируем существ по приоритету хода.
-        Collections.sort(creatures);
 
         return creatures;
     }
