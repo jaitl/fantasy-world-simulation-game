@@ -1,6 +1,5 @@
 package pro.jaitl.game.action;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 import pro.jaitl.game.entity.Entity;
@@ -11,8 +10,8 @@ import pro.jaitl.game.entity.Rock;
 import pro.jaitl.game.entity.Tree;
 import pro.jaitl.game.map.Coordinate;
 import pro.jaitl.game.map.WorldMap;
-import pro.jaitl.game.params.WorldSizeParams;
 import pro.jaitl.game.params.Params;
+import pro.jaitl.game.params.WorldSizeParams;
 import pro.jaitl.game.utils.RandomUtils;
 
 public class InitWorldMapAction implements Action {
@@ -23,8 +22,8 @@ public class InitWorldMapAction implements Action {
         generateEntities(initParams.getGrossCount(), map, () -> new Grass());
         generateEntities(initParams.getTreeCount(), map, () -> new Tree());
         generateEntities(initParams.getRockCount(), map, () -> new Rock());
-        generateEntities(initParams.getHerbivoreCount(), map, () -> new Herbivore(params.getHerbivoreParams()));
-        generateEntities(initParams.getPredatorCount(), map, () -> new Predator(params.getPredatorParams()));
+        generateEntities(initParams.getHerbivoreCount(), map, () -> new Herbivore());
+        generateEntities(initParams.getPredatorCount(), map, () -> new Predator());
     }
 
     private void generateEntities(int count, WorldMap map, Supplier<Entity> supplier) {

@@ -1,7 +1,6 @@
 package pro.jaitl.game.params;
 
 public class WorldSizeParams {
-    private float alivePersent;
     private int treeCount;
     private int grossCount;
     private int rockCount;
@@ -9,14 +8,6 @@ public class WorldSizeParams {
     private int predatorCount;
     
     public WorldSizeParams() {
-    }
-
-    public float getAlivePersent() {
-        return alivePersent;
-    }
-
-    public void setAlivePersent(float alivePersent) {
-        this.alivePersent = alivePersent;
     }
 
     public int getTreeCount() {

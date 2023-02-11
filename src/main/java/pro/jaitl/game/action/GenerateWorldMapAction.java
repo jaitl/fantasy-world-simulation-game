@@ -21,20 +21,18 @@ public class GenerateWorldMapAction implements Action {
     public void doAction(WorldMap map, Params params) {
         WorldSizeParams worldSizeParams = params.getWorldSizeParams();
 
-        float alivePersent = worldSizeParams.getAlivePersent();
-
-        generateEntities(worldSizeParams.getGrossCount(), alivePersent, map, () -> new Grass(), Grass.class);
-        generateEntities(worldSizeParams.getTreeCount(), alivePersent, map, () -> new Tree(), Tree.class);
-        generateEntities(worldSizeParams.getRockCount(), alivePersent, map, () -> new Rock(), Rock.class);
-        generateEntities(worldSizeParams.getHerbivoreCount(), alivePersent, map, () -> new Herbivore(params.getHerbivoreParams()), Herbivore.class);
-        generateEntities(worldSizeParams.getPredatorCount(), alivePersent, map, () -> new Predator(params.getPredatorParams()), Predator.class);
+        generateEntities(worldSizeParams.getGrossCount(), map, () -> new Grass(), Grass.class);
+        generateEntities(worldSizeParams.getTreeCount(), map, () -> new Tree(), Tree.class);
+        generateEntities(worldSizeParams.getRockCount(), map, () -> new Rock(), Rock.class);
+        generateEntities(worldSizeParams.getHerbivoreCount(), map, () -> new Herbivore(), Herbivore.class);
+        generateEntities(worldSizeParams.getPredatorCount(), map, () -> new Predator(), Predator.class);
     }
 
-    private <T extends Entity> void generateEntities(int count, float alivePersent, WorldMap map, Supplier<T> supplier, Class<T> clazz) {
-        List<T> entities = map.getByClass(clazz);
+    private <T extends Entity> void generateEntities(int count, WorldMap map, Supplier<T> supplier, Class<T> clazz) {
+        List<T> entities = map.getEntitiesByClass(clazz);
 
         // Проверяем процент живых существ, если он больше требуемого, то не добавляем новых
-        if (count * alivePersent < entities.size()) {
+        if (!entities.isEmpty()) {
             return;
         }
 

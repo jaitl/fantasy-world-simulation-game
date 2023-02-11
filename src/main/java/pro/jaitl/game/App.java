@@ -6,10 +6,8 @@ import pro.jaitl.game.action.Action;
 import pro.jaitl.game.action.GenerateWorldMapAction;
 import pro.jaitl.game.action.InitWorldMapAction;
 import pro.jaitl.game.action.MakeMoveAction;
-import pro.jaitl.game.params.HerbivoreParams;
-import pro.jaitl.game.params.WorldSizeParams;
 import pro.jaitl.game.params.Params;
-import pro.jaitl.game.params.PredatorParams;
+import pro.jaitl.game.params.WorldSizeParams;
 
 public class App {
 
@@ -23,27 +21,15 @@ public class App {
         );
 
         WorldSizeParams worldSizeParams = new WorldSizeParams();
-        worldSizeParams.setAlivePersent(0.3f);
         worldSizeParams.setGrossCount(40);
-        worldSizeParams.setTreeCount(10);
-        worldSizeParams.setRockCount(10);
+        worldSizeParams.setTreeCount(20);
+        worldSizeParams.setRockCount(20);
         worldSizeParams.setHerbivoreCount(10);
         worldSizeParams.setPredatorCount(2);
-
-        PredatorParams predatorParams = new PredatorParams();
-        predatorParams.setStrength(2);
-        predatorParams.setMaxHealth(10);
-        predatorParams.setMoveCount(2);
-
-        HerbivoreParams herbivoreParams = new HerbivoreParams();
-        herbivoreParams.setMaxHealth(10);
-        herbivoreParams.setMoveCount(3);
 
         Params params = new Params();
         params.setMapSize(20);
         params.setWorldSizeParams(worldSizeParams);
-        params.setPredatorParams(predatorParams);
-        params.setHerbivoreParams(herbivoreParams);
 
         Simulation simulation = new Simulation(initActions, turnActions, params);
 

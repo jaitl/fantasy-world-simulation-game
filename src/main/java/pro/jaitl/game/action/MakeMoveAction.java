@@ -12,7 +12,10 @@ public class MakeMoveAction implements Action {
     public void doAction(WorldMap map, Params params) {
         List<Creature> creatures = map.getCreatures();
         for (Creature creature : creatures) {
-            creature.makeMove(map);
+            // проверяем есть ли такое животное в мире, возможно его уже съели
+            if (map.hasEntity(creature)) {
+                creature.makeMove(map);
+            }
         }
     }
     

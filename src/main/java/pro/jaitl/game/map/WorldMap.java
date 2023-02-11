@@ -28,6 +28,10 @@ public class WorldMap {
         return coordinates.containsKey(coordinate);
     }
 
+    public boolean hasEntity(Entity entity) {
+        return entities.containsKey(entity);
+    }
+
     public void add(Coordinate coordinate, Entity entity) {
         if (coordinates.containsKey(coordinate) || entities.containsKey(entity)) {
             throw new RuntimeException(String.format("already exists: %s, %s", coordinate, entity));
@@ -66,7 +70,7 @@ public class WorldMap {
         return creatures;
     }
 
-    public <T extends Entity> List<T> getByClass(Class<T> clazz) {
+    public <T extends Entity> List<T> getEntitiesByClass(Class<T> clazz) {
         List<T> result = new ArrayList<>();
 
         for (Entity entity : entities.keySet()) {
