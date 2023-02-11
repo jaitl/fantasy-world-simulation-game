@@ -27,7 +27,7 @@ public class GenerateWorldMapAction implements Action {
     }
 
     private <T extends Entity> void generateEntities(int count, WorldMap map, Supplier<T> supplier, Class<T> clazz) {
-        List<T> entities = map.getEntitiesByClass(clazz);
+        List<T> entities = map.findEntitiesByClass(clazz);
 
         // Проверяем есть ли сущности такого типа на карте, если нет, то добавляем
         if (!entities.isEmpty()) {

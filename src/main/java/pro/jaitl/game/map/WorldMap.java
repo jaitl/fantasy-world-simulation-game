@@ -21,10 +21,6 @@ public class WorldMap {
         this.size = size;
     }
 
-    public int getSize() {
-        return size;
-    }
-
     public void putOnRandomCoordinate(Entity entity) {
         Coordinate coordinate = randomCoordinate();
         entity.setCoordinate(coordinate);
@@ -43,7 +39,7 @@ public class WorldMap {
 
     public void move(Entity entity, Coordinate newCoordinate) {
         if (coordinates.containsKey(newCoordinate)) {
-            throw new RuntimeException("Coordinate already used: " + newCoordinate);
+            throw new RuntimeException("Coordinate already exists: " + newCoordinate);
         }
         remove(entity);
         entity.setCoordinate(newCoordinate);
@@ -54,6 +50,9 @@ public class WorldMap {
         return coordinates.get(coordinate);
     }
 
+    /*
+     * Возвращает живых существ, отсортированных по приоритету хода
+     */
     public List<Creature> getCreatures() {
         List<Creature> creatures = new ArrayList<>();
 
@@ -69,7 +68,10 @@ public class WorldMap {
         return creatures;
     }
 
-    public <T extends Entity> List<T> getEntitiesByClass(Class<T> clazz) {
+    /*
+     * Находит список сущности по типу класса
+     */
+    public <T extends Entity> List<T> findEntitiesByClass(Class<T> clazz) {
         List<T> result = new ArrayList<>();
 
         for (Entity entity : coordinates.values()) {
@@ -81,6 +83,9 @@ public class WorldMap {
         return result;
     }
 
+    /*
+     * Возвращает алгоритм поиска пути
+     */
     public PathSearchAlg getPatchSearchAlg() {
         return new PathSearchBfsImpl(size);
     }
