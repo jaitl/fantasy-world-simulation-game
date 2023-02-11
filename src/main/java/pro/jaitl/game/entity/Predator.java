@@ -7,7 +7,7 @@ import pro.jaitl.game.map.path.Desigion;
 public class Predator extends Creature {
 
     public Predator() {
-        super("🐺");
+        super("🐺", 1);
     }
 
     @Override

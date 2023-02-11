@@ -31,21 +31,23 @@ public class Simulation {
 
         while(true) {
             System.out.println("move number: " + moveNumner);
-            nextTurn();
+            for(Action action : turnActions) {
+                action.doAction(worldMap, params);
+            }  
             System.out.println(worldMap);
             moveNumner += 1;
             
-            try {
-                Thread.sleep(500);
-            } catch (Exception e) {
-                
-            }
+            // Замедляем выполнение програамы, что бы наблюдать за результатом
+            threadSleep(500);
         }
     }
 
-    private void nextTurn() {
-        for(Action action : turnActions) {
-            action.doAction(worldMap, params);
-        }    
+    // Преобразовываем cacheable exception в uncacheable для красоты кода =)
+    private void threadSleep(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

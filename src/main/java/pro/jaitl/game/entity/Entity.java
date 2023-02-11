@@ -1,40 +1,25 @@
 package pro.jaitl.game.entity;
 
-import java.util.Objects;
-import java.util.UUID;
+import pro.jaitl.game.map.Coordinate;
 
 public abstract class Entity {
-    private final UUID id = UUID.randomUUID();
     private final String name;
+    private Coordinate coordinate;
 
     public String getName() {
         return name;
     }
 
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
     public Entity(String name) {
         this.name = name;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Entity other = (Entity) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
     }
 
     @Override

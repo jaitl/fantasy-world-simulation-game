@@ -4,7 +4,6 @@ import java.util.List;
 
 import pro.jaitl.game.action.Action;
 import pro.jaitl.game.action.GenerateWorldMapAction;
-import pro.jaitl.game.action.InitWorldMapAction;
 import pro.jaitl.game.action.MakeMoveAction;
 import pro.jaitl.game.params.Params;
 import pro.jaitl.game.params.WorldSizeParams;
@@ -13,7 +12,7 @@ public class App {
 
     public static void main(String[] args) {
         List<Action> initActions = List.of(
-            new InitWorldMapAction()
+            new GenerateWorldMapAction()
         );
         List<Action> turnActions = List.of(
             new MakeMoveAction(),

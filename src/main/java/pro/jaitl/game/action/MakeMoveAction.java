@@ -12,8 +12,8 @@ public class MakeMoveAction implements Action {
     public void doAction(WorldMap map, Params params) {
         List<Creature> creatures = map.getCreatures();
         for (Creature creature : creatures) {
-            // проверяем есть ли такое животное в мире, возможно его уже съели
-            if (map.hasEntity(creature)) {
+            // проверяем есть ли такое животное на карте, возможно его уже съели...
+            if (creature.getCoordinate() != null) {
                 creature.makeMove(map);
             }
         }

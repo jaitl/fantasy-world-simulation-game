@@ -12,7 +12,7 @@ import pro.jaitl.game.map.Coordinate;
 /*
  * Реализация алгоритма поиска пути на основе алгоритма BFS.
  */
-public class PathSearchBfsImpl extends PathSearch {
+public class PathSearchBfsImpl extends PathSearchAlg {
 
     public PathSearchBfsImpl(int mapSize) {
         super(mapSize);

@@ -6,12 +6,19 @@ import pro.jaitl.game.map.Coordinate;
 import pro.jaitl.game.map.WorldMap;
 import pro.jaitl.game.map.path.CoordinateDesigionStrategy;
 import pro.jaitl.game.map.path.Path;
-import pro.jaitl.game.map.path.PathSearch;
+import pro.jaitl.game.map.path.PathSearchAlg;
 
-public abstract class Creature extends Entity {
+public abstract class Creature extends Entity implements Comparable<Creature> {
+    // Приоритет при ходе, животное с наименьшим приоритетом ходит первым.
+    private final int priority;
 
-    public Creature(String name) {
+    public int getPriority() {
+        return priority;
+    }
+
+    public Creature(String name, int priority) {
         super(name);
+        this.priority = priority;
     }
 
     protected abstract CoordinateDesigionStrategy searchStrategy(WorldMap map);
@@ -22,10 +29,14 @@ public abstract class Creature extends Entity {
         eat;
     }
 
+    @Override
+    public int compareTo(Creature arg0) {
+        return Integer.compare(priority, arg0.getPriority());
+    }
+
     public void makeMove(WorldMap map) {
-        Coordinate myCoordinate = map.getCoordinate(this);
-        PathSearch patchSearch = map.getPatchSearch();
-        Path path = patchSearch.find(searchStrategy(map), myCoordinate);
+        PathSearchAlg patchSearch = map.getPatchSearchAlg();
+        Path path = patchSearch.find(searchStrategy(map), getCoordinate());
         List<Coordinate> coordinates = path.toList();
 
         if (coordinates.isEmpty()) {
@@ -46,8 +57,7 @@ public abstract class Creature extends Entity {
     }
 
     private void move(WorldMap worldMap, Coordinate newCoordinate) {
-        worldMap.remove(this);
-        worldMap.add(newCoordinate, this);
+        worldMap.move(this, newCoordinate);
     }
 
     private void eat(WorldMap map, Coordinate coordinate) {

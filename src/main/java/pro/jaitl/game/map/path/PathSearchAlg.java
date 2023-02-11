@@ -5,10 +5,10 @@ import pro.jaitl.game.map.Coordinate;
 /*
  * Интерфейс алгоритма поиска пути
  */
-public abstract class PathSearch {
+public abstract class PathSearchAlg {
     protected final int mapSize;
 
-    public PathSearch(int mapSize) {
+    public PathSearchAlg(int mapSize) {
         this.mapSize = mapSize;
     }
 
